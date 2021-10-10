@@ -295,14 +295,12 @@ img{
 	background-color: rgba(0,0,0,.5);
 	padding: 1rem 2rem;
 	border-radius: .5rem;
-	margin-top: var(--mb-6);
 	width: 100%;
 }
-.home__description h2{
-	font-size: var(--h2-font-size);
-}
-.home__place{
-	font-weight: var(--regular-font);
+.home__description span{
+	display: block;
+	font-weight: var(--semi-bold-font);
+	font-size: var(--h3-font-size);
 }
 /* ===== end home ===== */
 
