@@ -22,33 +22,43 @@
 	<!-- ===== HEADER ===== -->
 	<header class="l-header" id="header">
 		<nav class="nav bd-container">
-			<a href="#" class="nav__logo">Shinta & Rama</a>
-
 			<div class="nav__menu" id="nav-menu">
-				<div class="nav__close" id="nav-close">
-					<i class='bx bx-x'></i>
-				</div>
 				<ul class="nav__list">
 					<li class="nav__item">
-						<a href="#home" class="nav__link active-link">Home</a>
+						<a href="#home" class="nav__link active-link">
+							<i class='bx bx-home nav__icon'></i>
+							<span class="nav__name">Home</span>
+						</a>
 					</li>
 					<li class="nav__item">
-						<a href="#couple" class="nav__link">Mempelai</a>
+						<a href="#couple" class="nav__link">
+							<i class='bx bxs-heart nav__icon'></i>
+							<span class="nav__name">Couple</span>
+						</a>
 					</li>
 					<li class="nav__item">
-						<a href="#event" class="nav__link">Acara</a>
+						<a href="#event" class="nav__link">
+							<i class='bx bx-calendar-heart nav__icon'></i>
+							<span class="nav__name">Event</span>
+						</a>
 					</li>
 					<li class="nav__item">
-						<a href="#gallery" class="nav__link">Galeri</a>
+						<a href="#gallery" class="nav__link">
+							<i class='bx bx-image nav__icon'></i>
+							<span class="nav__name">Gallery</span>
+						</a>
 					</li>
 					<li class="nav__item">
-						<a href="#message" class="nav__link">Pesan</a>
+						<a href="#message" class="nav__link">
+							<i class='bx bx-envelope nav__icon'></i>
+							<span class="nav__name">Wish</span>
+						</a>
 					</li>
 				</ul>
 			</div>
 
 			<div class="nav__toggle" id="nav-toggle">
-				<i class='bx bx-menu' ></i>
+				<i class='bx bx-grid-alt menu__icon'></i>
 			</div>
 		</nav>
 	</header>
@@ -59,12 +69,18 @@
 		<!-- ===== HOME ===== -->
 		<section class="home" id="home">
 			<div class="home__container bd-container">
-				<div class="home__content" data-aos="fade-down">
-					<h2 class="home__subtitle">The Wedding of</h2>
+				<div class="home__img">
+					<img src="assets/img/couple.jpg" alt="" class="home__img-mobile" data-aos="fade-down">
+					<img src="assets/img/pic1.jpg" alt="" class="home__img-desktop">
+				</div>
+				<div class="home__description mobile" data-aos="fade-down">
+					<p>at Adimulia Hotel Medan<br><span>Sunday, 25th December 2022</span></p>
+				</div>
+				<div class="home__description desktop">
+					<h3 class="home__subtitle">The Wedding of</h3>
 					<h1 class="home__title">Shinta & Rama</h1>
-					<div class="home__description">
-						<span class="home__place">at Adimulia Hotel Medan</span>
-						<span>Sunday, 25th December 2022</span>
+					<div class="home__data">
+						<h3>at Adimulia Hotel Medan<br>Sunday, 25th December 2022</h3>
 					</div>
 				</div>
 			</div>
@@ -84,7 +100,7 @@
 				<div class="couple__box" data-aos="fade-right">
 					<span class="couple__subtitle">Mempelai Wanita</span>
 					<h2 class="couple__name">Shinta</h2>
-					<span class="couple__description">Putri dari Bapak Shinta & Ibu Shinta</span>
+					<p class="couple__description"><span>Putri dari:</span>Bapak Shinta & Ibu Shinta</p>
 					<div class="social__media">
 						<a href="#" class="social__media-link" target="_blank"><i class='bx bxl-instagram'></i></a>
 					</div>
@@ -97,7 +113,7 @@
 				<div class="couple__box" data-aos="fade-left">
 					<span class="couple__subtitle">Mempelai Pria</span>
 					<h2 class="couple__name">Rama</h2>
-					<span class="couple__description">Putra dari Bapak Rama & Ibu Rama</span>
+					<p class="couple__description"><span>Putra dari:</span>Bapak Rama & Ibu Rama</p>
 					<div class="social__media">
 						<a href="#" class="social__media-link" target="_blank"><i class='bx bxl-instagram'></i></a>
 					</div>
@@ -123,7 +139,7 @@
 						<span>&mdash;</span>
 						<span class="event__place">ADIMULIA HOTEL MEDAN</span>
 						<span class="event__address">Jl. Pangeran Diponegoro No.8, Medan.</span>
-						<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="640" data-height="480">
+						<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="100%" data-height="480">
 							<div class="button__with-icon">
 								<i class='bx bx-map-alt button__icon'></i>
 								<span>Get Direction</span>
@@ -144,7 +160,7 @@
 						<span>&mdash;</span>
 						<span class="event__place">ADIMULIA HOTEL MEDAN</span>
 						<span class="event__address">Jl. Pangeran Diponegoro No.8, Medan.</span>
-						<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="640" data-height="480">
+						<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="100%" data-height="480">
 							<div class="button__with-icon">
 								<i class='bx bx-map-alt button__icon'></i>
 								<span>Get Direction</span>
@@ -233,38 +249,41 @@
 		</section>
 		<!-- ===== end quotes ===== -->
 
-		<!-- ===== COVID 19 ===== -->
+		<!-- ===== PROKES ===== -->
 		<section class="prokes section bd-container">
-			<h2 class="section-title">Protokol Kesehatan</h2>
-				
-			<div class="prokes__container bd-grid">
-				<div class="prokes__box">
-					<div class="prokes__img">
-						<img src="assets/img/mask.png" alt="">
+			<div class="prokes__content" data-aos="fade-down">
+				<h2 class="prokes__title">Prokes</h2>
+				<span class="prokes__subtitle">Demi memutus mata rantai penyebaran virus Covid-19 kami menerapkan protokol kesehatan dalam acara pernikahan kami. Kami harap Bapak/Ibu/Saudara/i mematuhi protokol kesehatan demi kenyamanan bersama.</span>
+
+				<div class="prokes__container bd-grid">
+					<div class="prokes__box">
+						<div class="prokes__img">
+							<img src="assets/img/masker.png" alt="">
+						</div>
+						<span class="prokes__description">Pakai masker</span>
 					</div>
-					<span class="prokes__description">Pakai Masker</span>
-				</div>
-				<div class="prokes__box">
-					<div class="prokes__img">
-						<img src="assets/img/wash-your-hands.png" alt="">
+					<div class="prokes__box">
+						<div class="prokes__img">
+							<img src="assets/img/cuci_tangan.png" alt="">
+						</div>
+						<span class="prokes__description">Mencuci tangan</span>
 					</div>
-					<span class="prokes__description">Mencuci Tangan</span>
-				</div>
-				<div class="prokes__box">
-					<div class="prokes__img">
-						<img src="assets/img/thermometer.png" alt="">
+					<div class="prokes__box">
+						<div class="prokes__img">
+							<img src="assets/img/suhu_badan.png" alt="">
+						</div>
+						<span class="prokes__description">Pastikan suhu tubuh normal</span>
 					</div>
-					<span class="prokes__description">Pastikan Suhu Tubuh Normal</span>
-				</div>
-				<div class="prokes__box">
-					<div class="prokes__img">
-						<img src="assets/img/keep-distance.png" alt="">
+					<div class="prokes__box">
+						<div class="prokes__img">
+							<img src="assets/img/jaga_jarak.png" alt="">
+						</div>
+						<span class="prokes__description">Menjaga jarak</span>
 					</div>
-					<span class="prokes__description">Menjaga Jarak</span>
 				</div>
 			</div>
 		</section>
-		<!-- ===== end prokes covid 19 ===== -->
+		<!-- ===== end prokes ===== -->
 
 		<!-- ===== MESSAGE ===== -->
 		<section class="message section bd-container" id="message">
@@ -342,12 +361,12 @@
 	<!-- ===== POP UP ===== -->
 	<div class="popup" id="popup">
 		<div class="popup__container bd-container">
-			<div class="popup__content" data-aos="fade-down">
+			<div class="popup__content">
 				<h2 class="popup__subtitle">Welcome</h2>
 				<div class="popup__line"></div>
 				<h3 class="popup__subtitle2">You are invited to the wedding of</h3>
 				<h1 class="popup__title">Shinta & Rama</h1>
-				<div class="button__with-icon popup__btn" id="popup-btn">
+				<div class="button__with-icon popup__button" id="popup-btn">
 					<i class='bx bx-envelope button__icon'></i>
 					<span>Open Invitation</span>
 				</div>

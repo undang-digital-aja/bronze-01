@@ -1,16 +1,10 @@
-/* ===== SHOW MENU ===== */
-const navMenu = document.getElementById('nav-menu');
-const closeNav = document.getElementById('nav-close');
-const toggleNav = document.getElementById('nav-toggle');
+// ===== SHOW MENU ===== //
+const navMenu = document.getElementById('nav-menu'),
+		toggleNav = document.getElementById('nav-toggle');
 
 // Show Menu
 toggleNav.addEventListener('click', ()=>{
 	navMenu.classList.toggle('show-menu')
-});
-
-// Hide Menu
-closeNav.addEventListener('click', ()=>{
-	navMenu.classList.remove('show-menu')
 });
 // ===== end show menu ===== //
 
@@ -23,7 +17,7 @@ function linkAction(){
 navLink.forEach(n => n.addEventListener('click',linkAction));
 // ===== end remove mobile menu ===== //
 
-// ===== SCROLL SECTINOS ACTIVE LINK ===== //
+// ===== SCROLL SECTIONS ACTIVE LINK ===== //
 const sections = document.querySelectorAll('section[id]');
 
 function scrollActive(){
@@ -42,20 +36,7 @@ function scrollActive(){
 	})
 }
 window.addEventListener('scroll', scrollActive);
-// ===== end scroll sections active link ===== //
-
-// ===== CHANGE BACKGROUND HEADER ===== //
-function scrollHeader(){
-	const nav = document.getElementById('header');
-
-	if (this.scrollY >= 200) {
-		nav.classList.add('scroll-header');
-	}else{
-		nav.classList.remove('scroll-header');
-	}
-}
-window.addEventListener('scroll', scrollHeader);
-// ===== end change background header ===== //
+// ===== end scroll sections active menu ===== //
 
 /* ===== COUNTDOWN TIMER ===== */
 const countdownDate = new Date("December 25, 2022 10:00:00").getTime();
@@ -164,48 +145,40 @@ popupBtn.addEventListener('click', ()=>{
 // ===== end pop up ===== //
 
 // ===== AOS ANIMATION ===== //
-// 1. popup -> .popup__content
+// 1. home -> .home__content
 
-// 2. home -> .home__content
+// 2. couple -> .bismillah, .couple__greeting, .couple__greeting2, .couple__box, .couple__img
 
-// 3. couple -> .bismillah, .couple__greeting, .couple__greeting2, .couple__box, .couple__img
-
-// 4. class css -> .section-title
+// 3. class css -> .section-title
 const sectionTitle = document.querySelectorAll('.section-title');
 sectionTitle.forEach((n, i) => {
 	n.dataset.aos = 'fade-down';
 });
 
-// 5. countdown timer -> .timer__subtitle, .timer__box
+// 4. countdown timer -> .timer__subtitle, .timer__box
 const timerBox = document.querySelectorAll('.timer__box');
 timerBox.forEach((n, i) => {
 	n.dataset.aos = 'flip-left';
 	n.dataset.aosDelay = i * 100;
 });
 
-// 6. gallery -> .gallery__box
+// 5. gallery -> .gallery__box
 const galleryBox = document.querySelectorAll('.gallery__box');
 galleryBox.forEach((img, i) => {
 	img.dataset.aos = 'zoom-in-down';
 	img.dataset.aosDelay = i * 100;
 });
 
-// 7. quotes -> .quotes__img, .quotes__text
+// 6. quotes -> .quotes__img, .quotes__text
 
-// 8. prokes -> .prokes__box
-const prokesBox = document.querySelectorAll('.prokes__box');
-prokesBox.forEach((n, i) => {
-	n.dataset.aos = 'flip-right';
-	n.dataset.aosDelay = i * 100;
-});
+// 7. prokes -> .prokes__content
 
-// 9. footer -> .footer__box
+// 8. footer -> .footer__box
 const footerBox = document.querySelectorAll('.footer__box');
 footerBox.forEach((n, i) => {
 	n.dataset.aos = 'fade-down';
 	n.dataset.aosDelay = i * 100;
 });
-
 
 AOS.init({
 	duration: 1500,
