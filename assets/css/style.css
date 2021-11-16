@@ -199,12 +199,11 @@ img{
 }
 .nav__menu{
 	background-color: var(--white-color);
-	padding: 0 1rem;
+	padding: 1.5rem 1rem 1rem;
 	position: fixed;
 	left: 0;
 	bottom: -100%;
 	width: 100%;
-	height: 4rem;
 	border-radius: 1.25rem 1.25rem 0 0;
 	z-index: var(--z-menu);
 	display: -ms-grid;
@@ -237,7 +236,7 @@ img{
 	font-weight: var(--semi-bold-font);
 }
 .nav__icon{
-	font-size: 1.5rem;
+	width: 30px;
 	margin-bottom: .3rem;
 }
 .nav__name{
@@ -895,9 +894,6 @@ footer{
 	/* ===== end class css ===== */
 
 	/* ===== NAV ====== */
-	.nav__menu{
-		height: 4.5rem;
-	}
 	.nav__name{
 		font-size: var(--normal-font-size);
 	}
@@ -905,6 +901,9 @@ footer{
 		width: 700px;
 		margin-left: auto;
 		margin-right: auto;
+	}
+	.nav__icon{
+		width: 40px;
 	}
 	/* ===== end nav ===== */
 
