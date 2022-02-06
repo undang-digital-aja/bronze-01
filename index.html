@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- ===== MAIN CSS ===== -->
-	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- ===== FAVICON ===== -->
+	<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
 	<!-- ===== BOX ICONS ===== -->
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -16,12 +16,1045 @@
 	<!-- ===== AOS ANIMATION CSS ===== -->
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+	<!-- ===== MAIN CSS ===== -->
+	<style>
+		/* ===== GOOGLE FONT ===== */
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+		/* ===== FONT FACE ===== */
+		@font-face {
+		   font-family: 'weather_sunday_-_personal_uRg';
+		   src: url('assets/fonts/weathersundaypersonaluse-d5qx-webfont.woff2') format('woff2'),
+			url('assets/fonts/weathersundaypersonaluse-d5qx-webfont.woff') format('woff');
+		   font-weight: normal;
+		   font-style: normal;
+		}
+		/* ===== end font face ===== */
+
+		/* ===== VARIABLES CSS ===== */
+		:root{
+			/* ===== Colors ===== */
+			--white-color: #FFF;
+			--text-color: #141414;
+			--vintage-light: #f7f3e9;
+			--vintage-darker: #eac8af;
+			--vintage-darkest: #865439;
+
+			/* ===== Font & Typography ===== */
+			--text-font: 'Poppins', sans-serif;;
+			--title-font: 'weather_sunday_-_personal_uRg';
+			--biggest-font-size: 2.30rem;
+			--h1-font-size: 1.5rem;
+			--h2-font-size: 1.25rem;
+			--h3-font-size: 1rem;
+			--normal-font-size: .938rem;
+			--small-font-size: .725rem;
+
+			/* ===== Font Weight ===== */
+			--regular-font: 400;
+			--medium-font: 500;
+			--semi-bold-font: 600;
+
+			/* ===== z-index ===== */
+			--z-toggle: 100;
+			--z-menu: 200;
+			--z-popup: 300;
+		}
+		/* ===== end variables css ===== */
+
+		/* Responsive Font & Typography */
+		@media screen and (min-width: 768px){
+			:root{
+				--biggest-font-size: 4rem;
+				--h1-font-size: 2.25rem;
+				--h2-font-size: 1.5rem;
+				--h3-font-size: 1.25rem;
+				--normal-font-size: 1rem;
+				--small-font-size: .825rem;
+			}
+		}
+		/* end responsive font & typography */
+
+		/* ===== BASE ===== */
+		*,
+		::before,
+		::after{
+			box-sizing: border-box;
+		}
+		html{
+			scroll-behavior: smooth;
+		}
+		body{
+			width: 100%;
+			margin: 0;
+			font-family: var(--text-font);
+			font-size: var(--normal-font-size);
+			background-color: var(--vintage-light);
+			color: var(--text-color);
+			line-height: 1.6;
+			overflow: hidden; /* POP-UP */
+		}
+		button,
+		input,
+		textarea{
+			outline: none;
+			border: none;
+			font-family: var(--text-font);
+			font-size: var(--normal-font-size);
+			color: var(--text-color);
+		}
+		h1,h2,h3,p,ul{
+			margin: 0;
+		}
+		ul{
+			padding: 0;
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+		.l-main{
+			overflow: hidden !important;
+		}
+		/* ===== end base ===== */
+
+		/* ===== SCROLL BAR ===== */
+		::-webkit-scrollbar{
+			width: .6rem;
+			background: #E8E8E8;
+		}
+		::-webkit-scrollbar-thumb{
+			background: #686D76;
+			border-radius: .5rem;
+		}
+		/* ===== end scroll bar ===== */
+
+		/* ===== CSS CLASS ===== */
+		.section{
+			padding: 4rem 0 3rem;
+		}
+		.section__title,
+		.rsvp__title,
+		.prokes__title{
+			font-size: var(--h1-font-size);
+			font-family: var(--title-font);
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+		/* ===== end css class ===== */
+
+		/* ===== LAYOUT ===== */
+		.container{
+			max-width: 1024px;
+			width: calc(100% - 2rem);
+			margin-left: 1rem;
+			margin-right: 1rem;
+		}
+		.grid{
+			display: -ms-grid;
+			display: grid;
+			grid-gap: 1.5rem;
+		}
+		/* ===== end layout ===== */
+
+		/* ===== SOCIAL MEDIA ===== */
+		.social__media-link{
+			background-color: var(--text-color);
+			color: var(--white-color);
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			padding: 0.5rem;
+			font-size: 1.5rem;
+			border-radius: 50%;
+		}
+		/* ===== end social media ===== */
+
+		/* ===== BUTTONS ===== */
+		.button{
+			background-color: var(--text-color);
+			color: var(--white-color);
+			padding: 0.6rem 1.5rem;
+			border-radius: .5rem;
+			cursor: pointer;
+		}
+		.button--flex{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+		}
+		.button__icon{
+			font-size: 1.5rem;
+			margin-right: .5rem;
+		}
+		/* ===== end buttons ===== */
+
+		/* ===== NAV ===== */
+		.nav__toggle{
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: var(--text-color);
+			color: var(--white-color);
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			cursor: pointer;
+			position: fixed;
+			left: 1rem;
+			bottom: 1.2rem;
+			z-index: var(--z-toggle);
+		}
+		.menu__icon{
+			font-size: 1.5rem;
+		}
+		.nav__menu{
+			background-color: var(--white-color);
+			padding: 1.5rem 1rem 1.75rem;
+			position: fixed;
+			left: 0;
+			bottom: -100%;
+			width: 100%;
+			border-radius: 1.25rem 1.25rem 0 0;
+			z-index: var(--z-menu);
+			display: -ms-grid;
+			display: grid;
+			-ms-grid-row-align: center;
+				align-items: center;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+		.nav__list,
+		.nav__link{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+		}
+		.nav__list{
+			-ms-flex-pack: distribute;
+				justify-content: space-around;
+		}
+		.nav__link{
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+					flex-direction: column;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+						-ms-grid-row-align: center;
+					align-items: center;
+			color: var(--text-color);
+			font-weight: var(--semi-bold-font);
+		}
+		.nav__icon{
+			width: 30px;
+			margin-bottom: .3rem;
+		}
+		.nav__name{
+			display: block;
+			font-size: var(--small-font-size);
+		}
+		.nav__close{
+			position: absolute;
+			right: 1rem;
+			bottom: .5rem;
+			font-size: 1.5rem;
+			color: red;
+			cursor: pointer;
+		}
+
+		/* Show Menu */
+		.show-menu{
+			bottom: 0;
+		}
+
+		/* Active Link */
+		.active-link{
+			position: relative;
+			color: var(--vintage-darkest);
+			-webkit-transition: .3s;
+			transition: .3s;
+		}
+		.active-link::before{
+			content: '';
+			position: absolute;
+			bottom: -.3rem;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background-color: var(--vintage-darkest);
+			display: none;
+		}
+		/* ===== end nav ===== */
+
+		/* ===== HOME ===== */
+		.home{
+			width: 100%;
+			height: 100vh;
+			background-color: var(--vintage-darker);
+			overflow: hidden;
+		}
+		/* ===== end home ===== */
+
+		/* ===== COUPLE ===== */
+		.couple span{
+			display: block;
+		}
+		.couple{
+			text-align: center;
+		}
+		.bismillah{
+			margin-bottom: .5rem;
+		}
+		.bismillah__img{
+			width: 350px;
+		}
+		.couple__greeting{
+			font-style: italic;
+			margin-bottom: 1rem;
+		}
+		.couple__greeting2{
+			margin-bottom: 2.5rem;
+		}
+		.couple__box{
+			background-color: var(--vintage-darker);
+			padding: 2rem 1rem;
+			border-radius: .5rem;
+			text-align: center;
+		}
+		.couple__subtitle{
+			margin-bottom: 1.5rem;
+			font-weight: var(--medium-font);
+		}
+		.couple__name{
+			margin-bottom: .5rem;
+			font-family: var(--title-font);
+			font-size: var(--h1-font-size);
+		}
+		.couple__description{
+			margin-bottom: 1rem;
+		}
+		.couple__description span{
+			font-weight: var(--semi-bold-font);
+			margin-bottom: .3rem;
+		}
+		.couple__img{
+			width: 280px;
+			height: 320px;
+			position: relative;
+			border-radius: .5rem;
+			overflow: hidden;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.couple__img img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			-o-object-position: top;
+			   object-position: top;
+		}
+		/* ===== end couple ===== */
+
+		/* ===== EVENT ===== */
+		.event span{
+			display: block;
+		}
+		.event{
+			text-align: center;
+		}
+		.event__content{
+			background-color: var(--vintage-darker);
+			padding: 1.5rem 1rem;
+		}
+		.event__img{
+			width: 100%;
+			height: 250px;
+			position: relative;
+			border-top-left-radius: .5rem;
+			border-top-right-radius: .5rem;
+			overflow: hidden;
+		}
+		.event__img img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			-o-object-position: center;
+			   object-position: center;
+		}
+		.event__title{
+			margin-bottom: 1rem;
+		}
+		.event__date,
+		.event__time{
+			font-size: 1.1rem;
+		}
+		.event__address{
+			margin-bottom: 1.5rem;
+		}
+		/* ===== end event ===== */
+
+		/* ===== COUNTDOWN TIMER ===== */
+		.timer span{
+			display: block;
+		}
+		.timer{
+			text-align: center;
+			margin-top: 1.5rem;
+		}
+		.timer .section__title{
+			margin-bottom: 0;
+		}
+		.timer__subtitle{
+			margin-bottom: 2rem;
+		}
+		.timer__container{
+			-ms-grid-columns: (minmax(100px,1fr))[auto-fit];
+				grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+		}
+		.timer__number{
+			width: 100px;
+			height: 100px;
+			border-top-left-radius: .5rem;
+			border-bottom-right-radius: .5rem;
+			border-top-right-radius: 1.5rem;
+			border-bottom-left-radius: 1.5rem;
+			background-color: var(--vintage-darker);
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			font-family: var(--title-font);
+			font-size: var(--h1-font-size);
+			font-weight: var(--medium-font);
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.timer__description{
+			margin-top: .5rem;
+			font-weight: var(--medium-font);
+		}
+
+		/* Timer Stop */
+		#timer-stop{
+			text-align: center;
+			margin-top: 1rem;
+		}
+		/* ===== end countdown timer ===== */
+
+		/* ===== GALLERY ===== */
+		.gallery__container{
+			-ms-grid-columns: (minmax(300px,1fr))[auto-fit];
+				grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+		}
+		.gallery__box{
+			width: 100%;
+			height: 300px;
+			position: relative;
+			border-radius: .5rem;
+			overflow: hidden;
+		}
+		.gallery__box img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			-o-object-position: center;
+			   object-position: center;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+		.gallery__box:hover img{
+			-webkit-transform: scale(1.1);
+					transform: scale(1.1);
+		}
+		/* ===== end gallery ===== */
+
+		/* ===== QUOTES ===== */
+		.quotes span{
+			display: block;
+		}
+		.quotes{
+			text-align: center;
+		}
+		.quotes__img{
+			margin-bottom: 1rem;
+		}
+		.quotes__container span{
+			margin-top: .5rem;
+			font-weight: var(--medium-font);
+		}
+		/* ===== end quotes ===== */
+
+		/* ===== PROKES ===== */
+		.prokes__content{
+			background-color: var(--vintage-darkest);
+			color: var(--white-color);
+			border-radius: 1.5rem;
+			padding: 2rem 1rem 1rem;
+		}
+		.prokes__title{
+			margin-bottom: 0;
+		}
+		.prokes__subtitle{
+			display: block;
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+		.prokes__container{
+			-ms-grid-columns: (minmax(120px,1fr))[auto-fit];
+				grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+		}
+		.prokes__img{
+			width: 120px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.prokes__description{
+			font-weight: var(--semi-bold-font);
+			display: block;
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+		/* ===== end prokes ===== */
+
+		/* ===== RSVP ===== */
+		.rsvp__container{
+			background-color: var(--white-color);
+			padding: 2rem 1.2rem;
+			border-radius: .5rem;
+		}
+
+		/* RSVP Form*/
+		.rsvp__field:not(:last-child){
+		   margin-bottom: 1rem;
+		}
+		.rsvp__input,
+		.rsvp__textarea{
+		   width: 100%;
+		   border: 1px solid #D9D9D9;
+		   padding: 0.3rem 0.4rem;
+		   border-radius: .3rem;
+		}
+		.rsvp__textarea{
+		   height: 125px;
+		   resize: none;
+		}
+
+		/* Radio Btn */
+		input[type='radio']::after{
+		   position: relative;
+		   content: '';
+		   display: inline-block;
+		   width: 19px;
+		   height: 19px;
+		   top: -1px;
+		   left: -1px;
+		   border: 2px solid #d8e4e2;
+		   background-color: var(--white-color);
+		   border-radius: 50%;
+		   box-sizing: border-box;
+		   cursor: pointer;
+		}
+		input[type='radio']:checked::after{
+		   width: 19px;
+		   height: 19px;
+		   border-radius: 50%;
+		   top: -1px;
+		   left: -1px;
+		   position: relative;
+		   background-color: var(--vintage-darkest);
+		   content: '';
+		   display: inline-block;
+		   visibility: visible;
+		   border: 2px solid #d8e4e2;
+		}
+		.radio__text{
+		   margin-left: .5rem;
+		}
+		.radio__box:first-child .radio__text{
+			margin-right: 1.5rem;
+		}
+		.rsvp__field:nth-child(3){
+		   text-align: center;
+		}
+		.rsvp__field:nth-child(3) .radio__box{
+		   display: inline-block;
+		}
+		.rsvp__sesi{
+		   background-color: var(--vintage-light);
+		   color: var(--text-color) !important;
+		   padding: 1rem;
+		   border-radius: .5rem;
+		}
+		.rsvp__button{
+			width: 100%;
+			margin-top: 2rem;
+		}
+
+		/* RSVP Respon */
+		.rsvp__respon{
+		   display: -webkit-box;
+		   display: -ms-flexbox;
+		   display: flex;
+		   -webkit-box-pack: start;
+			   -ms-flex-pack: start;
+				   justify-content: flex-start;
+		   -webkit-box-align: center;
+			   -ms-flex-align: center;
+				   align-items: center;
+			margin-top: .3rem;
+		   display: none;
+		}
+		.rsvp__respon-icon{
+		   font-size: 1.3rem;
+		   margin-right: .3rem;
+		   color: var(--vintage-darkest);
+		}
+
+		/* Show RSVP Respon */
+		.rsvp-respon{
+		   display: -webkit-box !important;
+		   display: -ms-flexbox !important;
+		   display: flex !important;
+		}
+		/* ===== end rsvp ===== */
+
+		/* ===== FOOTER ===== */
+		footer span{
+			display: block;
+		}
+		footer{
+			text-align: center;
+			background-color: var(--vintage-darker);
+			padding: 4rem 0 2rem;
+			margin-top: 4rem;
+		}
+		.footer__name{
+			font-family: var(--title-font);
+			font-size: var(--biggest-font-size);
+			margin-bottom: 1rem;
+		}
+		.footer__thanks{
+			font-weight: var(--medium-font);
+			letter-spacing: 2px;
+			margin-bottom: 2rem;
+		}
+		.footer__closing{
+			font-family: var(--title-font);
+			font-size: var(--h2-font-size);
+		}
+		.footer__title,
+		.footer__description{
+			font-size: var(--small-font-size);
+		}
+		.footer__box:first-child{
+			margin-bottom: 3rem;
+		}
+		.footer__description{
+			margin-bottom: 1rem;
+		}
+		.footer__note{
+			font-style: italic;
+			margin-bottom: 1rem;
+			font-size: var(--small-font-size);
+		}
+		/* ===== end footer ===== */
+
+		/* ===== BACKSOUND ===== */
+		.backsound{
+			width: 40px;
+			height: 40px;
+			background-color: var(--text-color);
+			border-radius: 50%;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			position: fixed;
+			right: 1rem;
+			bottom: 1.5rem;
+		}
+		.backsound__icon{
+			width: 23px;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			cursor: pointer;
+			filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="1 0" /><feFuncG type="table" tableValues="1 0" /><feFuncB type="table" tableValues="1 0" /></feComponentTransfer></filter></svg>#filter');
+			-webkit-filter: invert(1);
+					filter: invert(1);
+		}
+		/* ===== end backsound ===== */
+
+		/* ===== POP UP ===== */
+		.popup{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			background-color: rgba(0,0,0,.7);
+			-webkit-backdrop-filter: blur(15px);
+					backdrop-filter: blur(15px);
+			z-index: var(--z-popup);
+		}
+		.popup__container{
+			height: inherit;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+					flex-direction: column;
+			text-align: center;
+		}
+		.popup__content{
+			background-color: var(--vintage-darker);
+			border-radius: .5rem;
+			padding: 2rem 1.5rem;
+			width: 100%;
+		}
+		.popup__subtitle{
+			font-size: var(--h1-font-size);
+			font-weight: var(--regular-font);
+			margin-bottom: 2rem;
+		}
+		.popup__line{
+			height: 2px;
+			width: 50px;
+			background-color: var(--text-color);
+			-webkit-transform: rotate(90deg);
+					transform: rotate(90deg);
+			margin: .5rem auto;
+		}
+		.popup__subtitle2{
+			font-weight: var(--regular-font);
+			margin: 2rem 0 0;
+		}
+		.popup__title{
+			font-size: var(--biggest-font-size);
+			font-family: var(--title-font);
+			margin: 1rem 0 1.5rem;
+		}
+		/* ===== end popup ===== */
+
+		/* ===== MEDIA QUERIS ===== */
+		@media screen and (max-width: 320px){
+			/* ===== NAV ===== */
+			.nav__name{
+				display: none;
+			}
+			.active-link::before{
+				display: block;
+			}
+			/* ===== end nav ===== */
+		}
+
+		@media screen and (max-width: 336px){
+			/* ===== COUPLE ===== */
+			.couple__img{
+				width: 100%;
+				height: 300px;
+			}
+			/* ===== end couple ===== */
+
+			/* ===== GALLERY ===== */
+			.gallery__container{
+				-ms-grid-columns: (minmax(100%,1fr))[auto-fit];
+					grid-template-columns: repeat(auto-fit, minmax(100%,1fr));
+			}
+			/* ===== end gallery ===== */
+		}
+
+		@media screen and (max-width: 768px){
+			/* ===== HOME ===== */
+			/* Home Reset */
+			.home__description.desktop{
+				display: none;
+			}
+			.home__img-desktop{
+				display: none;
+			}
+			/* end home reset */
+
+			.home{
+				background: url(assets/img/home_mobile.png) no-repeat center/cover;
+			}
+			.home__container{
+				height: inherit;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+					-ms-flex-pack: center;
+						justify-content: center;
+				-webkit-box-align: center;
+					-ms-flex-align: center;
+						align-items: center;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+					-ms-flex-direction: column;
+						flex-direction: column;
+			}
+			.home__img{
+				width: 400px;
+				max-width: 100%;
+				height: 400px;
+				position: relative;
+				border-radius: .5rem;
+				overflow: hidden;
+			}
+			.home__img img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				-o-object-fit: cover;
+				   object-fit: cover;
+				-o-object-position: top;
+				   object-position: top;
+			}
+			.home__description.mobile{
+				background: var(--white-color);
+				border-radius: .5rem;
+				margin-top: -1.5rem;
+				position: relative;
+				width: 400px;
+				max-width: 100%;
+				text-align: center;
+				padding: .5rem 0;
+				font-size: var(--h3-font-size);
+				font-weight: var(--semi-bold-font);
+			}
+			.home__description.mobile span{
+				display: block;
+				margin-top: .5rem;
+			}
+			/* ===== end home ===== */
+		}
+
+		@media screen and (min-width: 768px){
+			/* ===== CLASS CSS ===== */
+			.section{
+				padding-top: 5rem;
+			}
+			/* ===== end class css ===== */
+
+			/* ===== NAV ====== */
+			.nav__menu{
+				padding-bottom: 1rem;
+			}
+			.nav__name{
+				font-size: var(--normal-font-size);
+			}
+			.nav__list{
+				width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.nav__icon{
+				width: 40px;
+			}
+			.nav__close{
+				right: 1.5rem;
+				bottom: 1rem;
+			}
+			/* ===== end nav ===== */
+
+			/* ===== HOME ===== */
+			/* Home Reset */
+			.home__img-mobile,
+			.home__description.mobile{
+				display: none;
+			}
+			.home__container{
+				width: 100%;
+				max-width: 100%;
+				margin-left: 0;
+				margin-right: 0;
+				height: inherit;
+				background-color: var(--vintage-darker);
+			}
+			/* end home reset */
+
+			.home__img{
+				width: 70%;
+				height: inherit;
+				position: relative;
+			}
+			.home__img img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				-o-object-fit: cover;
+				   object-fit: cover;
+				-o-object-position: center;
+				   object-position: center;
+			}
+			.home__description.desktop{
+				position: absolute;
+				top: 50%;
+				-webkit-transform: translateY(-50%);
+						transform: translateY(-50%);
+				right: 4rem;
+				background-color: var(--white-color);
+				padding: 3rem 4rem;
+				text-align: center;
+			}
+			.home__description.desktop .home__title{
+				font-family: var(--title-font);
+				font-size: 3rem;
+				padding: 2rem 0;
+			}
+			/* ===== end home ===== */
+
+			/* ===== COUPLE ===== */
+			.bismillah__img{
+				width: 410px;
+			}
+			.couple__container{
+				-ms-grid-columns: (1fr)[3];
+					grid-template-columns: repeat(3,1fr);
+				-webkit-box-align: center;
+					-ms-flex-align: center;
+							-ms-grid-row-align: center;
+						align-items: center;
+			}
+			.couple__img{
+				width: 100%;
+				height: 300px;
+			}
+			/* ===== end couple ===== */
+
+			/* ===== EVENT ===== */
+			.event__date,
+			.event__time{
+				font-size: 1.2rem;
+			}
+			.event__container{
+				-ms-grid-columns: (1fr)[2];
+					grid-template-columns: repeat(2,1fr);
+			}
+			/* ===== end event ===== */
+
+			/* ===== COUNTDOWN TIMER ===== */
+			.timer__subtitle{
+				width: 90%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end countdown timer ===== */
+
+			/* ===== QUOTES ===== */
+			.quotes__img{
+				width: 550px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.quotes__text{
+				width: 70%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end quotes ===== */
+
+			/* ===== PROKES ===== */
+			.prokes__subtitle{
+				width: 90%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.prokes__img{
+				width: 160px;
+			}
+			/* ===== end prokes ===== */
+
+			/* ===== POP UP ===== */
+			.popup__content{
+				width: 70%;
+			}
+			.popup__button{
+				max-width: -webkit-max-content;
+				max-width: -moz-max-content;
+				max-width: max-content;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end pop up ===== */
+		}
+
+		@media screen and (min-width: 1024px){
+			/* ===== LAYOUT ===== */
+			.container{
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end layout ===== */
+
+			/* ===== EVENT ===== */
+			.event__container{
+				grid-column-gap: 4rem;
+			}
+			/* ===== end event ===== */
+		}
+		/* ===== end media queris ===== */
+	</style>	
+	<!-- ===== end main css ===== -->
+
 	<title>Wedding Invitation - Shinta & Rama</title>
 </head>
 <body>
 	<!-- ===== HEADER ===== -->
 	<header class="l-header" id="header">
-		<nav class="nav bd-container">
+		<nav class="nav container">
 			<div class="nav__menu" id="nav-menu">
 				<ul class="nav__list">
 					<li class="nav__item">
@@ -49,16 +1082,17 @@
 						</a>
 					</li>
 					<li class="nav__item">
-						<a href="#message" class="nav__link">
-							<img src="assets/img/wish.png" alt="" class="nav__icon">
-							<span class="nav__name">Wish</span>
+						<a href="#rsvp" class="nav__link">
+							<img src="assets/img/rsvp.png" alt="" class="nav__icon">
+							<span class="nav__name">RSVP</span>
 						</a>
 					</li>
 				</ul>
+				<i class='bx bx-x nav__close' id="nav-close"></i>
 			</div>
 
 			<div class="nav__toggle" id="nav-toggle">
-				<i class='bx bx-grid-alt menu__icon'></i>
+				<i class='bx bx-menu menu__icon'></i>
 			</div>
 		</nav>
 	</header>
@@ -68,7 +1102,7 @@
 	<main class="l-main">
 		<!-- ===== HOME ===== -->
 		<section class="home" id="home">
-			<div class="home__container bd-container">
+			<div class="home__container container">
 				<div class="home__img">
 					<img src="assets/img/couple.jpg" alt="" class="home__img-mobile" data-aos="fade-down">
 					<img src="assets/img/pic1.jpg" alt="" class="home__img-desktop">
@@ -88,7 +1122,7 @@
 		<!-- ===== end home ===== -->
 
 		<!-- ===== COUPLE ===== -->
-		<section class="couple section bd-container" id="couple">
+		<section class="couple section container" id="couple">
 			<div class="bismillah" data-aos="fade-down">
 				<img src="assets/img/bismillah_black.svg" alt="" class="bismillah__img">
 			</div>
@@ -96,7 +1130,7 @@
 			<span class="couple__greeting2" data-aos="fade-down" data-aos-delay="100">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan kami</span>
 
 
-			<div class="couple__container bd-grid">
+			<div class="couple__container grid">
 				<div class="couple__box" data-aos="fade-right">
 					<span class="couple__subtitle">Mempelai Wanita</span>
 					<h2 class="couple__name">Shinta</h2>
@@ -123,10 +1157,10 @@
 		<!-- ===== end couple ===== -->
 
 		<!-- ===== EVENT ===== -->
-		<section class="event section bd-container" id="event">
-			<h2 class="section-title">Waktu & Tempat</h2>
+		<section class="event section container" id="event">
+			<h2 class="section__title">Waktu & Tempat</h2>
 
-			<div class="event__container bd-grid">
+			<div class="event__container grid">
 				<div class="event__box" data-aos="fade-right">
 					<div class="event__img">
 						<img src="assets/img/pic2.jpg" alt="">
@@ -140,7 +1174,7 @@
 						<span class="event__place">ADIMULIA HOTEL MEDAN</span>
 						<span class="event__address">Jl. Pangeran Diponegoro No.8, Medan.</span>
 						<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="100%" data-height="480">
-							<div class="button__with-icon">
+							<div class="button button--flex">
 								<i class='bx bx-map-alt button__icon'></i>
 								<span>Get Direction</span>
 							</div>
@@ -161,7 +1195,7 @@
 						<span class="event__place">ADIMULIA HOTEL MEDAN</span>
 						<span class="event__address">Jl. Pangeran Diponegoro No.8, Medan.</span>
 						<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="100%" data-height="480">
-							<div class="button__with-icon">
+							<div class="button button--flex">
 								<i class='bx bx-map-alt button__icon'></i>
 								<span>Get Direction</span>
 							</div>
@@ -173,11 +1207,11 @@
 		<!-- ===== end event ===== -->
 
 		<!-- ===== COUNTDOWN TIMER ===== -->
-		<section class="timer section bd-container">
-			<h2 class="section-title">The Day</h2>
+		<section class="timer container">
+			<h2 class="section__title">The Day</h2>
 			<span class="timer__subtitle" data-aos="fade-down">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara (i) berkenan hadir dan memberikan doa restu untuk kedua mempelai.</span>
 
-			<div class="timer__container bd-grid">
+			<div class="timer__container grid">
 				<div class="timer__box">
 					<div class="timer__number" id="days">0</div>
 					<span class="timer__description">Hari</span>			
@@ -200,10 +1234,10 @@
 		<!-- ===== end countdown timer ===== -->
 
 		<!-- ===== GALLERY ===== -->
-		<section class="gallery section bd-container" id="gallery">
-			<h2 class="section-title">Galeri</h2>
+		<section class="gallery section container" id="gallery">
+			<h2 class="section__title">Galeri</h2>
 
-			<div class="gallery__container bd-grid">
+			<div class="gallery__container grid">
 				<div class="gallery__box">
 					<a href="assets/img/pic1.jpg" data-fancybox="gallery" data-caption="Love">
 						<img src="assets/img/pic1.jpg" alt="">
@@ -239,7 +1273,7 @@
 		<!-- ===== end gallery ===== -->
 
 		<!-- ===== QUOTES ===== -->
-		<section class="quotes section bd-container">
+		<section class="quotes section container">
 			<div class="quotes__container">
 				<div class="quotes__img" data-aos="fade-down">
 					<img src="assets/img/quotes.png" alt="">
@@ -250,12 +1284,12 @@
 		<!-- ===== end quotes ===== -->
 
 		<!-- ===== PROKES ===== -->
-		<section class="prokes section bd-container">
+		<section class="prokes container">
 			<div class="prokes__content" data-aos="fade-down">
 				<h2 class="prokes__title">Prokes</h2>
 				<span class="prokes__subtitle">Demi memutus mata rantai penyebaran virus Covid-19 kami menerapkan protokol kesehatan dalam acara pernikahan kami. Kami harap Bapak/Ibu/Saudara/i mematuhi protokol kesehatan demi kenyamanan bersama.</span>
 
-				<div class="prokes__container bd-grid">
+				<div class="prokes__container grid">
 					<div class="prokes__box">
 						<div class="prokes__img">
 							<img src="assets/img/masker.png" alt="">
@@ -285,44 +1319,66 @@
 		</section>
 		<!-- ===== end prokes ===== -->
 
-		<!-- ===== MESSAGE ===== -->
-		<section class="message section bd-container" id="message">
-			<div class="message__container">
-				<div class="message__img" data-aos="zoom-in">
-					<img src="assets/img/pic4.jpg" alt="">
+		<!-- ===== RSVP ===== -->
+		<section class="rsvp section container" id="rsvp">
+			<div class="rsvp__container" data-aos="fade-down">
+				<div class="rsvp__box">
+					<div class="rsvp__box-form">
+						<h2 class="rsvp__title">R S V P</h2>
+						<form class="rsvp__form" name="rsvp-input-data">
+							<!-- Nama -->
+							<div class="rsvp__field">
+								<label for="rsvp-name">Nama:</label>
+								<input type="text" class="rsvp__input validate" id="rsvp-name" name="Nama" required="" value="">
+							</div>
+							<!-- Pesan -->
+							<div class="rsvp__field">
+								<label for="rsvp-textarea">Pesan:</label>
+								<textarea class="rsvp__textarea" id="rsvp-textarea" required="" name="Pesan"></textarea>
+							</div>
+							<!-- Kehadiran -->
+							<div class="rsvp__field">
+								<div class="radio__box">
+									<input type="radio" value="Hadir" checked="checked" class="radio__input" name="Kehadiran"><span class="radio__text">Hadir</span>
+								</div>
+								<div class="radio__box">
+									<input type="radio" value="Tidak Hadir" class="radio__input" name="Kehadiran"><span class="radio__text">Tidak Hadir</span>
+								</div>
+							</div>
+							<!-- Sesi -->
+							<div class="rsvp__field rsvp__sesi">
+								<span class="sesi__title">Silahkan Pilih Jadwal Kedatangan</span>
+								<div class="radio__box">
+									<input type="radio" value="Akad" checked="checked" class="radio__input" name="Sesi"><span class="radio__text">Sesi 1: Akad Nikah</span>
+								</div>
+								<div class="radio__box">
+									<input type="radio" value="Resepsi" class="radio__input" name="Sesi"><span class="radio__text">Sesi 2: Resepsi</span>
+								</div>
+								<span class="sesi__notes">Tamu undangan diharapkan hadir sesuai dengan sesi yang telah ditentukan.</span>
+							</div>
+							<button type="submit" class="button button--flex rsvp__button">
+								<i class='bx bx-envelope button__icon'></i>
+								<span>Kirim</span>
+							</button>
+						</form>
+					</div>
+
+					<!-- RSVP Modal -->
+					<div class="rsvp__respon">
+						<i class='bx bx-check rsvp__respon-icon'></i>
+						<span>Terimakasih!</span>
+					</div>
 				</div>
-				<form class="message__form" data-aos="zoom-in" data-aos-delay="100">
-					<h2 class="message__title">Send Your Wish!</h2>
-					<div class="message__field">
-						<label for="message-name">Nama</label>
-						<input type="text" class="message__input validate" name="name" required value="" id="message-name">
-						<div class="underline"></div>
-					</div>
-					<div class="message__field textarea">
-						<label for="message-textarea">Pesan</label>
-						<textarea class="message__textarea" required id="message-textarea"></textarea>
-						<div class="underline"></div>
-					</div>
-					<div class="message__field" style="display: none;">
-						<input type="url" class="message__input validate" name="url" required value="" id="message-url">
-					</div>
-
-					<a href="javascript:void" class="button__with-icon" id="send-message" type="submit" title="Send">
-						<i class='bx bxl-whatsapp button__icon'></i>
-						<span>Kirim</span>
-					</a>
-
-					<div id="message-respon"></div>
-				</form>
 			</div>
 		</section>
-		<!-- ===== end message ===== -->
+		<!-- ===== end rsvp ===== -->
+		
 	</main>
 	<!-- ===== end main ===== -->
 
 	<!-- ===== FOOTER ===== -->
 	<footer>
-		<div class="footer__container bd-container">
+		<div class="footer__container container">
 			<div class="footer__box">
 				<span class="footer__name">Shinta & Rama</span>
 				<span class="footer__thanks">TERIMA KASIH</span>
@@ -331,12 +1387,10 @@
 			<div class="footer__box">
 				<span class="footer__title">By: Undang Digital Aja</span>
 				<span class="footer__description">Your Partner for Digital Invitation Website</span>
-				<span class="footer__note">Photo by Febry Arya from Pexels</span>
+				<span class="footer__note">(Photo by Febry Arya from Pexels)</span>
 				<div class="social__media">
 					<!-- IG -->
 					<a href="https://www.instagram.com/undangdigitalaja/" target="_blank" class="social__media-link"><i class='bx bxl-instagram' ></i></a>
-					<!-- WA -->
-					<a href="https://api.whatsapp.com/send?phone=6287896889778&text=Halo+Admin%2C+mau+tanya+Undangan+Digital+dong!" target="_blank" class="social__media-link"><i class='bx bxl-whatsapp'></i></a>
 				</div>
 			</div>
 		</div>
@@ -352,21 +1406,15 @@
 	</div>
 	<!-- ===== end backsound ===== -->
 
-	<!-- ===== SCROLL TOP ===== -->
-	<a href="#" class="scrolltop" id="scroll-top">
-		<i class='bx bx-chevron-up scrolltop__icon' ></i>
-	</a>
-	<!-- ===== end scroll top ===== -->
-
 	<!-- ===== POP UP ===== -->
 	<div class="popup" id="popup">
-		<div class="popup__container bd-container">
+		<div class="popup__container container">
 			<div class="popup__content">
 				<h2 class="popup__subtitle">Welcome</h2>
 				<div class="popup__line"></div>
 				<h3 class="popup__subtitle2">You are invited to the wedding of</h3>
 				<h1 class="popup__title">Shinta & Rama</h1>
-				<div class="button__with-icon popup__button" id="popup-btn">
+				<div class="button button--flex popup__button" id="popup-btn">
 					<i class='bx bx-envelope button__icon'></i>
 					<span>Open Invitation</span>
 				</div>
@@ -378,13 +1426,158 @@
 	<!-- ===== FANCYAPPS JS ===== -->
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
-	<!-- ===== JQUERY for MESSAGE BOX via WhatsApp ===== -->
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-
 	<!-- ===== AOS ANIMATION JS ===== -->
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 	<!-- ===== MAIN JS ===== -->
-	<script src="assets/js/script.js"></script>
+	<script>
+		// ===== SHOW MENU ===== //
+		const navMenu = document.getElementById('nav-menu'),
+				toggleNav = document.getElementById('nav-toggle'),
+				closeNav = document.getElementById('nav-close');
+
+		// Show Menu
+		toggleNav.addEventListener('click', ()=>{
+			navMenu.classList.toggle('show-menu')
+		});
+
+		// Hide Menu
+		closeNav.addEventListener('click', ()=>{
+			navMenu.classList.remove('show-menu')
+		});
+		// ===== end show menu ===== //
+
+		// ===== REMOVE MOBILE MENU ===== //
+		const navLink = document.querySelectorAll('.nav__link');
+
+		function linkAction(){
+			navMenu.classList.remove('show-menu')
+		}
+		navLink.forEach(n => n.addEventListener('click',linkAction));
+		// ===== end remove mobile menu ===== //
+
+		// ===== SCROLL SECTIONS ACTIVE LINK ===== //
+		const sections = document.querySelectorAll('section[id]');
+
+		function scrollActive(){
+			const scrollY = window.pageYOffset
+
+			sections.forEach(current =>{
+				const sectionHeight = current.offsetHeight
+				const sectionTop = current.offsetTop - 50;
+				sectionId = current.getAttribute('id')
+
+				if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+					document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+				}else{
+					document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+				}
+			})
+		}
+		window.addEventListener('scroll', scrollActive);
+		// ===== end scroll sections active menu ===== //
+
+		/* ===== COUNTDOWN TIMER ===== */
+		const countdownDate = new Date("December 25, 2022 10:00:00").getTime();
+
+		const timerFunction = setInterval(() => {
+			const currentDate = new Date().getTime();
+			const finalTime = countdownDate - currentDate;
+
+			if(finalTime > 0){
+				const days = Math.floor(finalTime / (1000*60*60*24));
+				const hours = Math.floor((finalTime % (1000*60*60*24)) / (1000*60*60));
+				const minutes = Math.floor((finalTime % (1000*60*60)) / (1000*60));
+				const seconds = Math.floor((finalTime % (1000*60)) / (1000));
+
+				document.getElementById('days').innerHTML = days;
+				document.getElementById('hours').innerHTML = hours;
+				document.getElementById('minutes').innerHTML = minutes;
+				document.getElementById('seconds').innerHTML = seconds;
+			}else{
+				clearInterval(timerFunction);
+				document.getElementById("timer-stop").innerHTML = "The Countdown is Over!";
+		   }
+		}, 1000);
+		// ===== end countdown timer ===== //
+
+		// ===== BACKSOUND ===== //
+		const backsound = document.getElementById('song');
+		const backsoundIcon = document.getElementById('backsound-icon');
+		const popupBtn = document.getElementById('popup-btn');
+
+		popupBtn.addEventListener('click', ()=>{
+			backsound.play();
+			backsoundIcon.src = "assets/img/pause.png";
+		})
+
+		backsoundIcon.onclick = ()=>{
+			if(backsound.paused){
+				backsound.play();
+				backsoundIcon.src = "assets/img/pause.png";
+			}else{
+				backsound.pause();
+				backsoundIcon.src = "assets/img/play.png";
+			}
+		}
+		// ===== end backsound ===== //
+
+		// ===== POP-UP ===== //
+		const popup = document.getElementById('popup');
+		// const popupBtn = document.getElementById('popup-btn');
+
+		popupBtn.addEventListener('click', ()=>{
+			document.body.style.overflow = 'auto';
+			popup.style.display = 'none';
+		});
+		// ===== end pop up ===== //
+
+		// ===== AOS ANIMATION ===== //
+		// 1. home -> .home__img-mobile, .home__description mobile
+
+		// 2. couple -> .bismillah, .couple__greeting, .couple__greeting2, .couple__box, .couple__img
+
+		// 3. class css -> .section-title
+		const sectionTitle = document.querySelectorAll('.section__title');
+		sectionTitle.forEach((n, i) => {
+			n.dataset.aos = 'fade-down';
+		});
+
+		// 4. event -> .event__box
+
+		// 5. countdown timer -> .timer__subtitle, .timer__box
+		const timerBox = document.querySelectorAll('.timer__box');
+		timerBox.forEach((n, i) => {
+			n.dataset.aos = 'flip-left';
+			n.dataset.aosDelay = i * 100;
+		});
+
+		// 6. gallery -> .gallery__box
+		const galleryBox = document.querySelectorAll('.gallery__box');
+		galleryBox.forEach((img, i) => {
+			img.dataset.aos = 'zoom-in-down';
+			img.dataset.aosDelay = i * 100;
+		});
+
+		// 7. quotes -> .quotes__img, .quotes__text
+
+		// 8. prokes -> .prokes__content
+
+		// 9. message -> .message__img, .message__form
+
+		// 10. footer -> .footer__box
+		const footerBox = document.querySelectorAll('.footer__box');
+		footerBox.forEach((n, i) => {
+			n.dataset.aos = 'fade-down';
+			n.dataset.aosDelay = i * 100;
+		});
+
+		AOS.init({
+			duration: 1500,
+			once: false,  
+		});
+		// ===== end aos animation ===== //
+	</script>	
+	<!-- ===== end main js ===== -->
 </body>
 </html>
